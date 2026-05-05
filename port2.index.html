@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stephen Cichon | Digital Marketing Specialist & Developer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a2e;
+      background: #f8f9fa;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .navbar {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0f4c5c;
+      text-decoration: none;
+    }
+    .logo span { color: #e67e22; }
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: #e67e22; }
+    .mobile-menu {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0f4c5c 0%, #1a1a2e 100%);
+      color: white;
+      text-align: center;
+      padding: 120px 0 80px;
+      margin-top: 60px;
+    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
+    .hero .highlight { color: #e67e22; }
+    .hero p { font-size: 1.2rem; margin-bottom: 25px; opacity: 0.9; }
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      margin: 5px;
+    }
+    .btn-primary {
+      background: #e67e22;
+      color: white;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #d35400;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 2px solid #e67e22;
+      color: #e67e22;
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: #e67e22;
+      color: white;
+    }
+    .section { padding: 60px 0; }
+    .section-dark { background: #1a1a2e; color: white; }
+    .section-title { font-size: 2rem; text-align: center; margin-bottom: 15px; }
+    .section-subtitle { text-align: center; color: #6c757d; margin-bottom: 40px; }
+    .section-dark .section-subtitle { color: #adb5bd; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .skill-card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .skill-card h3 { color: #0f4c5c; margin: 15px 0 10px; }
+    .skill-icon { font-size: 40px; }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+    .skill-tag {
+      background: #e9ecef;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: #2c3e50;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+    .portfolio-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .portfolio-icon {
+      background: linear-gradient(135deg, #0f4c5c, #e67e22);
+      padding: 40px;
+      text-align: center;
+      font-size: 48px;
+    }
+    .portfolio-card h3 { color: #0f4c5c; margin-bottom: 10px; }
+    .portfolio-content { padding: 20px; }
+    .portfolio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 15px 0;
+    }
+    .portfolio-tag {
+      background: #e9ecef;
+      padding: 3px 10px;
+      border-radius: 15px;
+      font-size: 11px;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .info-list {
+      list-style: none;
+    }
+    .info-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .info-list strong {
+      color: #0f4c5c;
+      display: inline-block;
+      width: 100px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .contact-icon { font-size: 24px; }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #dee2e6;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    .footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+      .nav-links.active { display: flex; }
+      .mobile-menu { display: block; }
+      .hero h1 { font-size: 1.8rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">Stephen<span>Cichon</span></a>
+    <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="container">
+    <h1>Hi, I'm <span class="highlight">Stephen S. Cichon</span></h1>
+    <p>Digital Marketing Specialist & WordPress/Shopify Developer</p>
+    <p style="font-size: 1rem; max-width: 600px; margin: 0 auto 25px;">I help brands increase conversions through high-performing ads + fast, SEO-optimized websites</p>
+    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+    <a href="#contact" class="btn btn-outline">Contact Me</a>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <h2 class="section-title">What I Do</h2>
+    <p class="section-subtitle">Specialized services to grow your business</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <h3>Google Ads</h3>
+        <p>Campaign setup, keyword research, A/B testing, conversion tracking, and ROI optimization.</p>
+        <div class="skill-tags"><span class="skill-tag">Search Ads</span><span class="skill-tag">Display Ads</span><span class="skill-tag">Shopping Ads</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💻</div>
+        <h3>WordPress Development</h3>
+        <p>Custom themes/plugins, speed optimization, security, migrations, and maintenance.</p>
+        <div class="skill-tags"><span class="skill-tag">PHP</span><span class="skill-tag">Custom Themes</span><span class="skill-tag">WooCommerce</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🛍️</div>
+        <h3>Shopify Development</h3>
+        <p>Theme customization, app integration, product page optimization, and Liquid coding.</p>
+        <div class="skill-tags"><span class="skill-tag">Liquid</span><span class="skill-tag">App Integration</span><span class="skill-tag">Speed Optimization</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📈</div>
+        <h3>Conversion Optimization</h3>
+        <p>Landing page design, heatmaps, GA4 setup, CRO audits, and A/B testing.</p>
+        <div class="skill-tags"><span class="skill-tag">GA4</span><span class="skill-tag">GTM</span><span class="skill-tag">Hotjar</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="portfolio">
+  <div class="container">
+    <h2 class="section-title">Featured Projects</h2>
+    <p class="section-subtitle">Case studies from recent work</p>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-icon">📈</div>
+        <div class="portfolio-content">
+          <h3>E-commerce ROAS Boost</h3>
+          <p>Google Shopping campaign increased ROAS from 2.5x to 4.2x in 3 months, lowering CPA by 32%.</p>
+          <div class="portfolio-tags"><span class="portfolio-tag">Google Ads</span><span class="portfolio-tag">Shopping</span><span class="portfolio-tag">CRO</span></div>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-icon">📚</div>
+        <div class="portfolio-content">
+          <h3>Custom WordPress LMS</h3>
+          <p>Built a custom Learning Management System for a corporate training company serving 5,000+ users.</p>
+          <div class="portfolio-tags"><span class="portfolio-tag">WordPress</span><span class="portfolio-tag">PHP</span><span class="portfolio-tag">LMS</span></div>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-icon">⚡</div>
+        <div class="portfolio-content">
+          <h3>Shopify Speed Optimization</h3>
+          <p>Improved Lighthouse score from 45 to 92, resulting in 28% increase in conversion rate.</p>
+          <div class="portfolio-tags"><span class="portfolio-tag">Shopify</span><span class="portfolio-tag">Speed</span><span class="portfolio-tag">Performance</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-subtitle">Results-driven professional with 12+ years of experience</p>
+    <div class="about-grid">
+      <div>
+        <p><strong>Results-driven Digital Marketing Specialist</strong> with expertise in paid advertising, conversion optimization, and web development. Proven ability to boost ad performance, drive high-quality traffic, and maximize ROI across Google Ads, Meta Ads, and other paid channels.</p>
+        <p style="margin-top: 15px;">Skilled in A/B testing, landing page optimization, and data-driven strategies. From content marketing to full-stack development – I bridge creative and technical expertise.</p>
+        <p style="margin-top: 15px;"><strong>Training:</strong> Intensive Graphic Design Course, Operations and Leadership Training, Full-stack Development Course (WordPress).</p>
+      </div>
+      <div>
+        <ul class="info-list">
+          <li><strong>Experience:</strong> 12+ Years</li>
+          <li><strong>Education:</strong> BS IT, WMSU (2008)</li>
+          <li><strong>Location:</strong> Negros Oriental, Philippines</li>
+          <li><strong>Email:</strong> stephen.tfe@gmail.com</li>
+          <li><strong>Phone:</strong> 09611214870</li>
+        </ul>
+        <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="skill-tag">HTML5/CSS3</span><span class="skill-tag">JavaScript/PHP</span><span class="skill-tag">SEO</span><span class="skill-tag">Figma</span><span class="skill-tag">GA4/GTM</span><span class="skill-tag">Python</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="contact">
+  <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-subtitle">Available for freelance projects and full-time roles</p>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-detail"><div class="contact-icon">📧</div><div><strong>Email</strong><br>stephen.tfe@gmail.com</div></div>
+        <div class="contact-detail"><div class="contact-icon">📱</div><div><strong>Phone</strong><br>09611214870</div></div>
+        <div class="contact-detail"><div class="contact-icon">📍</div><div><strong>Location</strong><br>Negros Oriental, Philippines</div></div>
+        <p style="margin-top: 20px;">Book a free 15-min discovery call to discuss your project goals.</p>
+      </div>
+      <form action="https://formspree.io/f/xqapwkgw" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <input type="text" name="_subject" placeholder="Subject">
+        <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+        <button type="submit" class="btn btn-primary" style="width: 100%; cursor: pointer;">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2026 Stephen S. Cichon. All rights reserved.</p>
+  <p style="margin-top: 10px; font-size: 14px;">Digital Marketing Specialist | WordPress Developer | Shopify Expert</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('active');
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('navLinks').classList.remove('active');
+      }
+    });
+  });
+</script>
+</body>
+</html>
