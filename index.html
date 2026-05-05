@@ -2,373 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stephen Cichon | About - Interactive Professional Section</title>
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: linear-gradient(145deg, #f3f6fc 0%, #f0f2f7 100%);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    /* Main container background */
-    .about-wrapper {
-      max-width: 1400px;
-      width: 100%;
-      margin: 2rem;
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(2px);
-      border-radius: 2rem;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    }
-
-    /* Interactive About Section */
-    .about-section {
-      background: #ffffff;
-      border-radius: 1.5rem;
-      overflow: hidden;
-      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
-      transition: all 0.2s ease;
-      border: 1px solid rgba(230, 126, 34, 0.15);
-    }
-
-    .about-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 0;
-    }
-
-    /* LEFT SIDE - interactive cards & stats */
-    .about-left {
-      background: linear-gradient(125deg, #0f2b33 0%, #1a3a44 100%);
-      padding: 2.5rem 2rem;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-left::before {
-      content: '';
-      position: absolute;
-      top: -30%;
-      right: -20%;
-      width: 280px;
-      height: 280px;
-      background: radial-gradient(circle, rgba(230,126,34,0.18) 0%, rgba(230,126,34,0) 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .profile-header {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .avatar-frame {
-      width: 85px;
-      height: 85px;
-      background: linear-gradient(135deg, #e67e22, #f39c12);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-
-    .avatar-frame img {
-      width: 77px;
-      height: 77px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid white;
-    }
-
-    .name-title h3 {
-      font-size: 1.7rem;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-    }
-
-    .name-title p {
-      opacity: 0.8;
-      font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 0.3rem;
-    }
-
-    .badge-light {
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(4px);
-      padding: 0.2rem 0.75rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 500;
-    }
-
-    /* Interactive stat cards */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .stat-card {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(2px);
-      border-radius: 1.2rem;
-      padding: 1rem 0.8rem;
-      text-align: center;
-      transition: all 0.25s ease;
-      cursor: default;
-      border: 1px solid rgba(230,126,34,0.4);
-    }
-
-    .stat-card:hover {
-      transform: translateY(-5px);
-      background: rgba(230,126,34,0.2);
-      border-color: #e67e22;
-    }
-
-    .stat-number {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: #f39c12;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 0.5rem;
-      opacity: 0.85;
-    }
-
-    .tool-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin: 1.8rem 0 1rem;
-    }
-
-    .tool-pill {
-      background: rgba(255,255,255,0.1);
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: 0.2s;
-    }
-
-    .tool-pill i {
-      color: #e67e22;
-      font-size: 0.7rem;
-    }
-
-    .tool-pill:hover {
-      background: #e67e22;
-      color: #1f2e35;
-      transform: scale(1.03);
-    }
-
-    .cert-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-
-    .cert-badge {
-      background: rgba(255,255,255,0.08);
-      border-radius: 60px;
-      padding: 0.35rem 1rem;
-      font-size: 0.7rem;
-      font-weight: 500;
-      border-left: 2px solid #e67e22;
-    }
-
-    /* RIGHT SIDE - Professional bio + interactive details */
-    .about-right {
-      background: white;
-      padding: 2.5rem 2rem;
-    }
-
-    .bio-text {
-      margin-bottom: 1.8rem;
-      line-height: 1.6;
-      color: #1f2a44;
-    }
-
-    .bio-text p {
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-
-    .highlight-text {
-      color: #e67e22;
-      font-weight: 600;
-    }
-
-    .info-dashboard {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-
-    .info-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.7rem 0;
-      border-bottom: 1px solid #eef2f8;
-      transition: 0.2s;
-    }
-
-    .info-row:hover {
-      transform: translateX(5px);
-      border-bottom-color: #e67e22;
-    }
-
-    .info-icon {
-      width: 38px;
-      height: 38px;
-      background: #fef5eb;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #e67e22;
-      font-size: 1.2rem;
-    }
-
-    .info-detail strong {
-      color: #0f4c5c;
-      font-weight: 700;
-      display: block;
-      font-size: 0.85rem;
-    }
-
-    .info-detail span {
-      color: #3a4b60;
-      font-size: 0.9rem;
-    }
-
-    .availability-status {
-      background: #e8f5e9;
-      border-radius: 40px;
-      padding: 0.3rem 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #2e7d32;
-    }
-
-    .call-action {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-connect {
-      background: #e67e22;
-      color: white;
-      border: none;
-      padding: 0.8rem 1.6rem;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-connect.outline {
-      background: transparent;
-      border: 1.5px solid #e67e22;
-      color: #e67e22;
-    }
-
-    .btn-connect:hover {
-      background: #d35400;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(230,126,34,0.2);
-    }
-
-    .btn-connect.outline:hover {
-      background: #e67e22;
-      color: white;
-    }
-
-    /* Interactive micro-animation */
-    @keyframes fadeSlide {
-      0% { opacity: 0; transform: translateY(10px);}
-      100% { opacity: 1; transform: translateY(0);}
-    }
-
-    .stat-card, .info-row, .tool-pill {
-      animation: fadeSlide 0.4s ease backwards;
-    }
-
-    .stat-card:nth-child(1) { animation-delay: 0.05s; }
-    .stat-card:nth-child(2) { animation-delay: 0.1s; }
-    .stat-card:nth-child(3) { animation-delay: 0.15s; }
-    .stat-card:nth-child(4) { animation-delay: 0.2s; }
-
-    @media (max-width: 900px) {
-      .about-inner {
-        grid-template-columns: 1fr;
-      }
-      .about-wrapper {
-        margin: 1rem;
-      }
-    }
-
-    /* glow effect */
-    .glow-text {
-      background: linear-gradient(120deg, #e67e22, #f39c12);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      font-weight: 700;
-    }
-  </style>
-</head>
-<body>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Stephen Cichon | Digital Marketing & Web Development Portfolio</title>
-  <!-- Font Awesome 6 (Professional Icons) -->
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     * {
@@ -559,7 +195,7 @@
       font-weight: 500;
     }
 
-    /* Portfolio case study cards (enhanced) */
+    /* Portfolio case study cards */
     .port-card {
       background: white;
       border-radius: 1rem;
@@ -623,7 +259,7 @@
       font-size: 0.7rem;
     }
 
-    /* Testimonials (International clients) */
+    /* Testimonials */
     .testimonial-card {
       background: white;
       padding: 1.8rem;
@@ -676,12 +312,264 @@
       margin-top: 0.3rem;
       font-size: 0.75rem;
     }
-    .country-flag {
-      font-size: 0.7rem;
-      margin-left: 0.3rem;
-    }
 
-    /* Keep in touch (Contact) */
+    /* ABOUT SECTION (Interactive + Professional) */
+    .about-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .about-section {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(230, 126, 34, 0.15);
+    }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 0;
+    }
+    .about-left {
+      background: linear-gradient(125deg, #0f2b33 0%, #1a3a44 100%);
+      padding: 2.5rem 2rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-left::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -20%;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(230,126,34,0.18) 0%, rgba(230,126,34,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .avatar-frame {
+      width: 85px;
+      height: 85px;
+      background: linear-gradient(135deg, #e67e22, #f39c12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .avatar-frame img {
+      width: 77px;
+      height: 77px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+    }
+    .name-title h3 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .name-title p {
+      opacity: 0.8;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.3rem;
+      flex-wrap: wrap;
+    }
+    .badge-light {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(4px);
+      padding: 0.2rem 0.75rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(2px);
+      border-radius: 1.2rem;
+      padding: 1rem 0.8rem;
+      text-align: center;
+      transition: all 0.25s ease;
+      cursor: default;
+      border: 1px solid rgba(230,126,34,0.4);
+    }
+    .stat-card:hover {
+      transform: translateY(-5px);
+      background: rgba(230,126,34,0.2);
+      border-color: #e67e22;
+    }
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #f39c12;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.5rem;
+      opacity: 0.85;
+    }
+    .tool-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.8rem 0 1rem;
+    }
+    .tool-pill {
+      background: rgba(255,255,255,0.1);
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: 0.2s;
+    }
+    .tool-pill i {
+      color: #e67e22;
+      font-size: 0.7rem;
+    }
+    .tool-pill:hover {
+      background: #e67e22;
+      color: #1f2e35;
+      transform: scale(1.03);
+    }
+    .cert-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .cert-badge {
+      background: rgba(255,255,255,0.08);
+      border-radius: 60px;
+      padding: 0.35rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      border-left: 2px solid #e67e22;
+    }
+    .about-right {
+      background: white;
+      padding: 2.5rem 2rem;
+    }
+    .bio-text {
+      margin-bottom: 1.8rem;
+      line-height: 1.6;
+      color: #1f2a44;
+    }
+    .bio-text p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .highlight-text {
+      color: #e67e22;
+      font-weight: 600;
+    }
+    .info-dashboard {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #eef2f8;
+      transition: 0.2s;
+    }
+    .info-row:hover {
+      transform: translateX(5px);
+      border-bottom-color: #e67e22;
+    }
+    .info-icon {
+      width: 38px;
+      height: 38px;
+      background: #fef5eb;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e67e22;
+      font-size: 1.2rem;
+    }
+    .info-detail strong {
+      color: #0f4c5c;
+      font-weight: 700;
+      display: block;
+      font-size: 0.85rem;
+    }
+    .info-detail span {
+      color: #3a4b60;
+      font-size: 0.9rem;
+    }
+    .availability-status {
+      background: #e8f5e9;
+      border-radius: 40px;
+      padding: 0.3rem 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #2e7d32;
+    }
+    .call-action {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-connect {
+      background: #e67e22;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-connect.outline {
+      background: transparent;
+      border: 1.5px solid #e67e22;
+      color: #e67e22;
+    }
+    .btn-connect:hover {
+      background: #d35400;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(230,126,34,0.2);
+    }
+    .btn-connect.outline:hover {
+      background: #e67e22;
+      color: white;
+    }
+    /* Contact */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -724,8 +612,6 @@
       transition: background 0.2s;
     }
     button:hover { background: #d35400; }
-
-    /* Footer */
     .footer {
       background: #1f2937;
       color: white;
@@ -744,7 +630,10 @@
     .social-links a:hover {
       color: #e67e22;
     }
-
+    @media (max-width: 900px) {
+      .about-inner { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 768px) {
       .menu-btn { display: block; }
       .nav-links {
@@ -761,10 +650,14 @@
       }
       .nav-links.show { display: flex; }
       .hero h1 { font-size: 1.8rem; }
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
       .section-title { font-size: 1.6rem; }
+    }
+    .fade-slide {
+      animation: fadeSlideUp 0.5s ease forwards;
+    }
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(20px);}
+      100% { opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
@@ -779,6 +672,7 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -794,279 +688,98 @@
   </div>
 </section>
 
-<!-- WHAT I DO SECTION - Enhanced -->
+<!-- WHAT I DO -->
 <section class="section" id="services">
   <div class="container">
     <h2 class="section-title">What I Do</h2>
     <p class="section-sub">Specialized services to scale your business globally</p>
     <div class="grid-4">
-      <div class="card">
-        <div class="card-icon"><i class="fab fa-google"></i></div>
-        <h3>Google Ads</h3>
-        <p>High-ROI campaign management, advanced keyword research, A/B testing, conversion tracking, and performance optimization for US, SG & AU markets.</p>
-        <div class="tags"><span class="tag">Search Ads</span><span class="tag">Shopping</span><span class="tag">YouTube Ads</span></div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fab fa-wordpress"></i></div>
-        <h3>WordPress Development</h3>
-        <p>Custom themes/plugins, enterprise-grade speed optimization, security hardening, and WooCommerce solutions for global e-commerce.</p>
-        <div class="tags"><span class="tag">PHP</span><span class="tag">Custom Themes</span><span class="tag">WooCommerce</span></div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fab fa-shopify"></i></div>
-        <h3>Shopify Development</h3>
-        <p>Headless commerce, theme customization, app integration, Liquid coding, and performance tuning for international brands.</p>
-        <div class="tags"><span class="tag">Liquid</span><span class="tag">App Integration</span><span class="tag">Speed Optimization</span></div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>CRO & Analytics</h3>
-        <p>Data-driven conversion audits, heatmaps, GA4 & GTM setup, A/B testing, and landing page optimization to maximize revenue.</p>
-        <div class="tags"><span class="tag">GA4</span><span class="tag">GTM</span><span class="tag">Hotjar</span><span class="tag">Optimizely</span></div>
-      </div>
+      <div class="card"><div class="card-icon"><i class="fab fa-google"></i></div><h3>Google Ads</h3><p>High-ROI campaign management, keyword research, A/B testing for US, SG & AU markets.</p><div class="tags"><span class="tag">Search Ads</span><span class="tag">Shopping</span></div></div>
+      <div class="card"><div class="card-icon"><i class="fab fa-wordpress"></i></div><h3>WordPress Development</h3><p>Custom themes/plugins, speed optimization, WooCommerce solutions for global e-commerce.</p><div class="tags"><span class="tag">PHP</span><span class="tag">WooCommerce</span></div></div>
+      <div class="card"><div class="card-icon"><i class="fab fa-shopify"></i></div><h3>Shopify Development</h3><p>Theme customization, Liquid coding, app integration, performance tuning.</p><div class="tags"><span class="tag">Liquid</span><span class="tag">Speed</span></div></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>CRO & Analytics</h3><p>GA4, GTM, heatmaps, A/B testing, conversion audits to maximize revenue.</p><div class="tags"><span class="tag">GA4</span><span class="tag">Hotjar</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- FEATURED PROJECTS (Enhanced case studies) -->
+<!-- FEATURED PROJECTS -->
 <section class="section section-dark" id="portfolio">
   <div class="container">
     <h2 class="section-title">Featured Projects</h2>
-    <p class="section-sub">In-depth case studies: from challenge to measurable ROI</p>
+    <p class="section-sub">Case studies: from challenge to measurable ROI</p>
     <div class="grid-3">
-      <!-- Project 1: International Google Ads -->
-      <div class="port-card">
-        <div class="port-icon"><i class="fas fa-chart-simple"></i></div>
-        <div class="port-content">
-          <h3>Global E-commerce ROAS Boost</h3>
-          <div class="challenge-solution"><strong>Challenge:</strong> US-based outdoor retailer had stagnant Google Shopping ROAS (2.5x) and high CPA due to unoptimized feed & broad match across US, Singapore & Australia.</div>
-          <div class="challenge-solution"><strong>Action:</strong> Restructured geo-targeted campaigns, optimized product feeds for each region, negative keyword mining, tROAS smart bidding, and localized ad copy.</div>
-          <div><strong>Result:</strong> <span style="color:#e67e22; font-weight:bold;">ROAS ↑ 4.2x</span> (68% increase), CPA ↓ 32% in 3 months across 3 countries.</div>
-          <div class="result-badge"><i class="fas fa-globe"></i> +68% ROAS | US • SG • AU</div>
-          <div class="port-tags"><span class="port-tag">Google Ads</span><span class="port-tag">Shopping</span><span class="port-tag">International</span></div>
-        </div>
-      </div>
-      <!-- Project 2: Custom WordPress LMS -->
-      <div class="port-card">
-        <div class="port-icon"><i class="fas fa-graduation-cap"></i></div>
-        <div class="port-content">
-          <h3>Custom WordPress LMS (APAC Region)</h3>
-          <div class="challenge-solution"><strong>Challenge:</strong> Australian corporate training provider needed scalable platform for 5,000+ users with video progress tracking & automated certifications.</div>
-          <div class="challenge-solution"><strong>Action:</strong> Built custom WordPress LMS using LearnDash + custom PHP modules, integrated Zoom API, optimized database for high concurrency, and launched AWS cloudfront CDN for speed.</div>
-          <div><strong>Result:</strong> Zero downtime, 5,200+ active users (AU + SG), course completion rate increased 40% YoY.</div>
-          <div class="result-badge"><i class="fas fa-users"></i> 5,200+ active learners</div>
-          <div class="port-tags"><span class="port-tag">WordPress</span><span class="port-tag">LMS</span><span class="port-tag">Zoom API</span></div>
-        </div>
-      </div>
-      <!-- Project 3: Shopify Speed optimization for US brand -->
-      <div class="port-card">
-        <div class="port-icon"><i class="fas fa-rocket"></i></div>
-        <div class="port-content">
-          <h3>Shopify Performance Overhaul</h3>
-          <div class="challenge-solution"><strong>Challenge:</strong> US beauty brand’s Shopify store had 45 Lighthouse score, high bounce rate (68%) on mobile, sluggish checkout.</div>
-          <div class="challenge-solution"><strong>Action:</strong> Removed bloat apps, deferred JS, WebP conversion, implemented lazy loading, Shopify 2.0 native caching, and optimized Liquid templates.</div>
-          <div><strong>Result:</strong> Lighthouse from 45 → 94, conversion rate ↑ 28%, page load 4.2s → 1.2s. Revenue increase of $340K annually.</div>
-          <div class="result-badge"><i class="fas fa-tachometer-alt"></i> 94 Lighthouse Score | +28% CVR</div>
-          <div class="port-tags"><span class="port-tag">Shopify</span><span class="port-tag">Liquid</span><span class="port-tag">WebP</span></div>
-        </div>
-      </div>
+      <div class="port-card"><div class="port-icon"><i class="fas fa-chart-simple"></i></div><div class="port-content"><h3>Global E-commerce ROAS Boost</h3><div class="challenge-solution"><strong>Challenge:</strong> US outdoor retailer low ROAS (2.5x) across US/SG/AU.</div><div class="challenge-solution"><strong>Action:</strong> Geo-targeted campaigns, tROAS bidding, local feed optimization.</div><div><strong>Result:</strong> <span style="color:#e67e22;">ROAS ↑ 4.2x</span>, CPA ↓32% in 3 months.</div><div class="result-badge"><i class="fas fa-globe"></i> +68% ROAS</div><div class="port-tags"><span class="port-tag">Google Ads</span><span class="port-tag">International</span></div></div></div>
+      <div class="port-card"><div class="port-icon"><i class="fas fa-graduation-cap"></i></div><div class="port-content"><h3>Custom WordPress LMS (APAC)</h3><div class="challenge-solution"><strong>Challenge:</strong> Australian client needed scalable LMS for 5k+ users.</div><div class="challenge-solution"><strong>Action:</strong> Built LearnDash + custom PHP, Zoom API, AWS CDN.</div><div><strong>Result:</strong> 5,200+ users, course completion ↑40%.</div><div class="result-badge"><i class="fas fa-users"></i> 5,200+ learners</div><div class="port-tags"><span class="port-tag">WordPress</span><span class="port-tag">LMS</span></div></div></div>
+      <div class="port-card"><div class="port-icon"><i class="fas fa-rocket"></i></div><div class="port-content"><h3>Shopify Performance Overhaul</h3><div class="challenge-solution"><strong>Challenge:</strong> US beauty brand: 45 Lighthouse score, high bounce.</div><div class="challenge-solution"><strong>Action:</strong> Removed bloat, WebP, lazy loading, Liquid optimization.</div><div><strong>Result:</strong> Lighthouse 45→94, CVR ↑28%, revenue +$340K/yr.</div><div class="result-badge"><i class="fas fa-tachometer-alt"></i> 94 Score | +28% CVR</div><div class="port-tags"><span class="port-tag">Shopify</span><span class="port-tag">Speed</span></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS SECTION (International clients: US, Singapore, Australia) -->
+<!-- TESTIMONIALS (US, SG, AU) -->
 <section class="section" id="testimonials">
   <div class="container">
     <h2 class="section-title">Trusted by Global Brands</h2>
-    <p class="section-sub">Real feedback from clients across United States, Singapore & Australia</p>
+    <p class="section-sub">Real feedback from United States, Singapore & Australia</p>
     <div class="grid-2">
-      <!-- USA Client -->
-      <div class="testimonial-card">
-        <div class="testimonial-text">
-          “Stephen’s Google Ads expertise transformed our e-commerce revenue. He restructured our US campaigns and delivered a 158% ROI increase within 90 days. His data-driven approach is second to none.”
+      <div class="testimonial-card"><div class="testimonial-text">“Stephen’s Google Ads expertise transformed our revenue. Delivered 158% ROI increase within 90 days.”</div><div class="testimonial-author"><div class="author-avatar">JM</div><div class="author-info"><strong>Jessica Martinez</strong><span>CMO, LuxeStyle Co. (USA) 🇺🇸</span><div class="rating">★★★★★</div></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-text">“Our Shopify store was bleeding customers. Stephen cut load times by 65% and boosted conversions 32%.”</div><div class="testimonial-author"><div class="author-avatar">WL</div><div class="author-info"><strong>Wei-Lin Tan</strong><span>Founder, Omni Retail SG 🇸🇬</span><div class="rating">★★★★★</div></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-text">“Custom WordPress LMS serves 7,000+ students across AU/NZ. Flawless security and UX. Highly recommend.”</div><div class="testimonial-author"><div class="author-avatar">PS</div><div class="author-info"><strong>Dr. Priya Sharma</strong><span>Director, EduFuture Academy 🇦🇺</span><div class="rating">★★★★½</div></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-text">“CRO audit uncovered $200k opportunities. GA4 setup gave crystal-clear insights. Game-changer.”</div><div class="testimonial-author"><div class="author-avatar">MK</div><div class="author-info"><strong>Michael K.</strong><span>E-comm Director, Vitality Brands 🇺🇸</span><div class="rating">★★★★★</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT (Interactive professional) -->
+<section class="section" id="about">
+  <div class="container about-wrapper">
+    <div class="about-section">
+      <div class="about-inner">
+        <div class="about-left">
+          <div class="profile-header"><div class="avatar-frame"><img src="profile.jpg.jpg" alt="Stephen"></div><div class="name-title"><h3>Stephen S. Cichon</h3><p><i class="fas fa-certificate"></i> Digital Marketing & Dev Expert <span class="badge-light">12+ yrs</span></p></div></div>
+          <div class="stats-grid"><div class="stat-card"><div class="stat-number">12+</div><div class="stat-label">Years Exp</div></div><div class="stat-card"><div class="stat-number">98%</div><div class="stat-label">Retention</div></div><div class="stat-card"><div class="stat-number">150+</div><div class="stat-label">Projects</div></div><div class="stat-card"><div class="stat-number">4.9</div><div class="stat-label">Rating</div></div></div>
+          <div><h4 style="font-size:0.85rem;"><i class="fas fa-code-branch"></i> Technical Toolbox</h4><div class="tool-pills"><span class="tool-pill"><i class="fab fa-google"></i> Google Ads</span><span class="tool-pill"><i class="fas fa-tags"></i> GTM/GA4</span><span class="tool-pill"><i class="fab fa-shopify"></i> Liquid</span><span class="tool-pill"><i class="fab fa-wordpress"></i> WP/Woo</span><span class="tool-pill"><i class="fab fa-php"></i> PHP/Laravel</span></div></div>
+          <div class="cert-row"><div class="cert-badge"><i class="fab fa-google"></i> Google Ads Certified</div><div class="cert-badge"><i class="fas fa-chart-pie"></i> HubSpot CRO</div></div>
         </div>
-        <div class="testimonial-author">
-          <div class="author-avatar">JM</div>
-          <div class="author-info">
-            <strong>Jessica Martinez</strong>
-            <span>CMO, LuxeStyle Co. (USA) <i class="fas fa-flag-usa country-flag"></i></span>
-            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          </div>
-        </div>
-      </div>
-      <!-- Singapore Client -->
-      <div class="testimonial-card">
-        <div class="testimonial-text">
-          “Our Shopify store was bleeding customers due to slow loading. Stephen cut load times by 65% and boosted conversions by 32% within weeks. The best Shopify expert we’ve worked with in Southeast Asia.”
-        </div>
-        <div class="testimonial-author">
-          <div class="author-avatar">WL</div>
-          <div class="author-info">
-            <strong>Wei-Lin Tan</strong>
-            <span>Founder, Omni Retail SG (Singapore) <i class="fas fa-flag country-flag"></i>🇸🇬</span>
-            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          </div>
-        </div>
-      </div>
-      <!-- Australia Client -->
-      <div class="testimonial-card">
-        <div class="testimonial-text">
-          “Stephen built our custom WordPress LMS that now serves over 7,000 students across Australia and NZ. His attention to security and user experience is rare. Highly recommended!”
-        </div>
-        <div class="testimonial-author">
-          <div class="author-avatar">DP</div>
-          <div class="author-info">
-            <strong>Dr. Priya Sharma</strong>
-            <span>Director, EduFuture Academy (Australia) <i class="fas fa-flag country-flag"></i>🇦🇺</span>
-            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-          </div>
-        </div>
-      </div>
-      <!-- Additional US-based client -->
-      <div class="testimonial-card">
-        <div class="testimonial-text">
-          “Stephen’s conversion optimization audit uncovered $200k in hidden revenue opportunities. His GA4 setup and A/B testing framework gave us crystal-clear insights. Absolute game-changer.”
-        </div>
-        <div class="testimonial-author">
-          <div class="author-avatar">MK</div>
-          <div class="author-info">
-            <strong>Michael K. </strong>
-            <span>E-commerce Director, Vitality Brands (USA) <i class="fas fa-flag-usa country-flag"></i></span>
-            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          </div>
+        <div class="about-right">
+          <div class="bio-text"><p><span class="highlight-text"><i class="fas fa-bullseye"></i> Results-driven Digital Marketing Specialist</span> with 12+ years boosting ROI via Google Ads, Meta Ads, and data-driven web development.</p><p>Skilled in A/B testing, landing page optimization, full-stack dev (WordPress/Shopify). I bridge creative & technical expertise for global brands.</p></div>
+          <div class="info-dashboard"><div class="info-row"><div class="info-icon"><i class="fas fa-briefcase"></i></div><div class="info-detail"><strong>Experience</strong><span>12+ Years (Freelance & Agency) — E-commerce, SaaS, Corporate</span></div></div><div class="info-row"><div class="info-icon"><i class="fas fa-graduation-cap"></i></div><div class="info-detail"><strong>Education</strong><span>BS IT, WMSU (2008) | Certified Digital Marketing Strategist</span></div></div><div class="info-row"><div class="info-icon"><i class="fas fa-map-marker-alt"></i></div><div class="info-detail"><strong>Location</strong><span>Negros Oriental, Philippines (Remote: US/SG/AU/EU)</span></div></div><div class="info-row"><div class="info-icon"><i class="fas fa-calendar-alt"></i></div><div class="info-detail"><strong>Availability</strong><span>Open for freelance & full-time remote <span class="availability-status"><i class="fas fa-circle"></i> Accepting</span></span></div></div></div>
+          <div class="call-action"><button class="btn-connect" onclick="location.href='#contact'"><i class="fas fa-paper-plane"></i> Hire me</button><button class="btn-connect outline" onclick="window.open('https://www.linkedin.com/in/stephensmcichon/','_blank')"><i class="fab fa-linkedin"></i> LinkedIn</button><button class="btn-connect outline" onclick="alert('📧 stephen.tfe@gmail.com | Let’s talk!')"><i class="fas fa-calendar-check"></i> 15-min call</button></div>
+          <p style="font-size:0.7rem; margin-top:1rem; border-left:2px solid #e67e22; padding-left:0.8rem;">⚡ Available for high-impact collaborations worldwide.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- KEEP IN TOUCH SECTION (Contact) -->
+<!-- KEEP IN TOUCH -->
 <section class="section section-dark" id="contact">
   <div class="container">
     <h2 class="section-title">Keep In Touch</h2>
     <p class="section-sub">Available for freelance projects and full-time roles — worldwide</p>
     <div class="contact-grid">
-      <div>
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-          <div><strong>Email</strong><br><a href="mailto:stephen.tfe@gmail.com" style="color: #e67e22; text-decoration: none;">stephen.tfe@gmail.com</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
-          <div><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/stephensmcichon/" target="_blank" style="color: #e67e22; text-decoration: none;">linkedin.com/in/stephensmcichon</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fab fa-github"></i></div>
-          <div><strong>GitHub</strong><br><a href="https://github.com/stephensmcichon-oss" target="_blank" style="color: #e67e22; text-decoration: none;">github.com/stephensmcichon-oss</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div><strong>Location</strong><br>Negros Oriental, Philippines (Remote for US/SG/AU/EU)</div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-calendar-check"></i></div>
-          <div><strong>Discovery Call</strong><br>Book a free 15-min session: <a href="#" style="color:#e67e22;">Schedule now</a></div>
-        </div>
-        <div style="background: rgba(230,126,34,0.1); border-radius: 30px; padding: 0.5rem 1rem; text-align: center; margin-top: 1rem;">
-          <i class="fas fa-clock"></i> Response within 12 hours | Global timezones
-        </div>
-      </div>
-
-      <form action="https://formsubmit.co/stephen.tfe@gmail.com" method="POST">
-        <input type="text" name="_honey" style="display:none">
-        <input type="hidden" name="_next" value="https://stephensmcichon-oss.github.io/myownportfolio/">
-        <input type="hidden" name="_captcha" value="false">
-        <div style="position: relative;">
-          <i class="fas fa-user" style="position: absolute; left: 12px; top: 12px; color: #9ca3af;"></i>
-          <input type="text" name="name" placeholder="Your Name" required style="padding-left: 2.5rem;">
-        </div>
-        <div style="position: relative;">
-          <i class="fas fa-envelope" style="position: absolute; left: 12px; top: 12px; color: #9ca3af;"></i>
-          <input type="email" name="email" placeholder="Your Email" required style="padding-left: 2.5rem;">
-        </div>
-        <div style="position: relative;">
-          <i class="fas fa-globe" style="position: absolute; left: 12px; top: 12px; color: #9ca3af;"></i>
-          <input type="text" name="location" placeholder="Where are you based? (US, SG, AU etc.)" style="padding-left: 2.5rem;">
-        </div>
-        <div style="position: relative;">
-          <i class="fas fa-comment" style="position: absolute; left: 12px; top: 12px; color: #9ca3af;"></i>
-          <textarea name="message" placeholder="Tell me about your project & goals..." required style="padding-left: 2.5rem;"></textarea>
-        </div>
-        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message →</button>
-      </form>
+      <div><div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><strong>Email</strong><br><a href="mailto:stephen.tfe@gmail.com" style="color:#e67e22;">stephen.tfe@gmail.com</a></div></div><div class="contact-item"><div class="contact-icon"><i class="fab fa-linkedin"></i></div><div><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/stephensmcichon/" target="_blank" style="color:#e67e22;">linkedin.com/in/stephensmcichon</a></div></div><div class="contact-item"><div class="contact-icon"><i class="fab fa-github"></i></div><div><strong>GitHub</strong><br><a href="https://github.com/stephensmcichon-oss" target="_blank" style="color:#e67e22;">github.com/stephensmcichon-oss</a></div></div><div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><strong>Location</strong><br>Negros Oriental, Philippines (Remote)</div></div><div style="background:rgba(230,126,34,0.15); border-radius:30px; padding:0.7rem; text-align:center;"><i class="fas fa-clock"></i> Response within 12 hours | Global timezones</div></div>
+      <form action="https://formsubmit.co/stephen.tfe@gmail.com" method="POST"><input type="text" name="_honey" style="display:none"><input type="hidden" name="_next" value="https://stephensmcichon-oss.github.io/myownportfolio/"><input type="hidden" name="_captcha" value="false"><div style="position:relative;"><i class="fas fa-user" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><input type="text" name="name" placeholder="Your Name" required style="padding-left:2.5rem;"></div><div style="position:relative;"><i class="fas fa-envelope" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><input type="email" name="email" placeholder="Your Email" required style="padding-left:2.5rem;"></div><div style="position:relative;"><i class="fas fa-globe" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><input type="text" name="location" placeholder="Your Country (US, SG, AU, etc.)" style="padding-left:2.5rem;"></div><div style="position:relative;"><i class="fas fa-comment" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><textarea name="message" placeholder="Tell me about your project & goals..." required style="padding-left:2.5rem;"></textarea></div><button type="submit"><i class="fas fa-paper-plane"></i> Send Message →</button></form>
     </div>
   </div>
 </section>
 
-<footer class="footer">
-  <p>&copy; 2026 Stephen S. Cichon. All rights reserved.</p>
-  <p style="margin-top: 0.5rem;">Digital Marketing Specialist | WordPress Developer | Shopify Expert</p>
-  <div class="social-links">
-    <a href="https://www.linkedin.com/in/stephensmcichon/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/stephensmcichon-oss" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-upwork"></i></a>
-  </div>
-</footer>
+<footer class="footer"><p>&copy; 2026 Stephen S. Cichon. All rights reserved.</p><p>Digital Marketing Specialist | WordPress Developer | Shopify Expert</p><div class="social-links"><a href="https://www.linkedin.com/in/stephensmcichon/" target="_blank"><i class="fab fa-linkedin"></i></a><a href="https://github.com/stephensmcichon-oss" target="_blank"><i class="fab fa-github"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-upwork"></i></a></div></footer>
 
 <script>
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('show');
-  }
-
+  function toggleMenu() { document.getElementById('navLinks').classList.toggle('show'); }
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-        document.getElementById('navLinks')?.classList.remove('show');
-      }
+      if (target) { target.scrollIntoView({ behavior: 'smooth' }); document.getElementById('navLinks')?.classList.remove('show'); }
     });
   });
+  // Add fade-in animation on scroll
+  const fadeElements = document.querySelectorAll('.card, .port-card, .testimonial-card, .stat-card, .info-row');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('fade-slide'); });
+  }, { threshold: 0.1 });
+  fadeElements.forEach(el => observer.observe(el));
 </script>
-</body>
-</html>
-
-        <!-- Additional training summary -->
-        <div style="background: #f8fafc; padding: 1rem; border-radius: 18px; margin: 0.5rem 0 1rem;">
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between;">
-            <div><i class="fas fa-paintbrush" style="color:#e67e22;"></i> <strong>Intensive Graphic Design</strong></div>
-            <div><i class="fas fa-chalkboard-user"></i> <strong>Operations & Leadership</strong></div>
-            <div><i class="fab fa-wpforms"></i> <strong>Full-stack Dev (WordPress)</strong></div>
-          </div>
-        </div>
-
-        <div class="call-action">
-          <button class="btn-connect" onclick="window.location.href='#contact'"><i class="fas fa-paper-plane"></i> Hire me</button>
-          <button class="btn-connect outline" onclick="window.open('https://www.linkedin.com/in/stephensmcichon/', '_blank')"><i class="fab fa-linkedin"></i> Connect on LinkedIn</button>
-          <button class="btn-connect outline" onclick="alert('📧 stephen.tfe@gmail.com | Let’s build something great!')"><i class="fas fa-calendar-check"></i> Book a 15-min call</button>
-        </div>
-
-        <!-- micro interaction indicator -->
-        <p style="font-size: 0.7rem; margin-top: 1rem; color:#6c86a3; border-left: 2px solid #e67e22; padding-left: 0.8rem;">
-          ⚡ Available for high-impact marketing & development collaborations.
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- optional smooth fake contact anchor for demo -->
-<script>
-  // simple smooth fake scroll if hash exists
-  document.querySelectorAll('.btn-connect').forEach(btn => {
-    if(btn.getAttribute('onclick') && btn.getAttribute('onclick').includes('#contact')) {
-      btn.removeAttribute('onclick');
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const contactSec = document.getElementById('contact-section-placeholder');
-        if(contactSec) contactSec.scrollIntoView({behavior: 'smooth'});
-        else alert('Contact section ready — feel free to integrate with main portfolio.');
-      });
-    }
-  });
-</script>
-
 </body>
 </html>
