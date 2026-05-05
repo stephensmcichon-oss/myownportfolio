@@ -540,6 +540,7 @@
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
+      align-items: center;
     }
     .btn-connect {
       background: #e67e22;
@@ -553,21 +554,34 @@
       transition: 0.2s;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      font-family: inherit;
+      line-height: 1;
     }
     .btn-connect.outline {
       background: transparent;
       border: 1.5px solid #e67e22;
       color: #e67e22;
     }
-    .btn-connect:hover {
-      background: #d35400;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(230,126,34,0.2);
-    }
     .btn-connect.outline:hover {
       background: #e67e22;
       color: white;
+    }
+    .btn-connect.whatsapp {
+      background: #25D366;
+      border-color: #25D366;
+      color: white;
+    }
+    .btn-connect.whatsapp:hover {
+      background: #128C7E;
+      border-color: #128C7E;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(37, 211, 102, 0.25);
+    }
+    .btn-connect i {
+      font-size: 1rem;
     }
     /* Contact */
     .contact-grid {
@@ -651,6 +665,13 @@
       .nav-links.show { display: flex; }
       .hero h1 { font-size: 1.8rem; }
       .section-title { font-size: 1.6rem; }
+      .call-action {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-connect {
+        justify-content: center;
+      }
     }
     .fade-slide {
       animation: fadeSlideUp 0.5s ease forwards;
@@ -715,21 +736,21 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS (US, SG, AU) -->
+<!-- TESTIMONIALS -->
 <section class="section" id="testimonials">
   <div class="container">
     <h2 class="section-title">Trusted by Global Brands</h2>
     <p class="section-sub">Real feedback from United States, Singapore & Australia</p>
     <div class="grid-2">
-      <div class="testimonial-card"><div class="testimonial-text">“Stephen’s Google Ads expertise transformed our revenue. Delivered 158% ROI increase within 90 days.”</div><div class="testimonial-author"><div class="author-avatar">JM</div><div class="author-info"><strong>Jessica Martinez</strong><span>CMO, LuxeStyle Co. (USA) 🇺🇸</span><div class="rating">★★★★★</div></div></div></div>
-      <div class="testimonial-card"><div class="testimonial-text">“Our Shopify store was bleeding customers. Stephen cut load times by 65% and boosted conversions 32%.”</div><div class="testimonial-author"><div class="author-avatar">WL</div><div class="author-info"><strong>Wei-Lin Tan</strong><span>Founder, Omni Retail SG 🇸🇬</span><div class="rating">★★★★★</div></div></div></div>
-      <div class="testimonial-card"><div class="testimonial-text">“Custom WordPress LMS serves 7,000+ students across AU/NZ. Flawless security and UX. Highly recommend.”</div><div class="testimonial-author"><div class="author-avatar">PS</div><div class="author-info"><strong>Dr. Priya Sharma</strong><span>Director, EduFuture Academy 🇦🇺</span><div class="rating">★★★★½</div></div></div></div>
-      <div class="testimonial-card"><div class="testimonial-text">“CRO audit uncovered $200k opportunities. GA4 setup gave crystal-clear insights. Game-changer.”</div><div class="testimonial-author"><div class="author-avatar">MK</div><div class="author-info"><strong>Michael K.</strong><span>E-comm Director, Vitality Brands 🇺🇸</span><div class="rating">★★★★★</div></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-text">"Stephen's Google Ads expertise transformed our revenue. Delivered 158% ROI increase within 90 days."</div><div class="testimonial-author"><div class="author-avatar">JM</div><div class="author-info"><strong>Jessica Martinez</strong><span>CMO, LuxeStyle Co. (USA) 🇺🇸</span><div class="rating">★★★★★</div></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-text">"Our Shopify store was bleeding customers. Stephen cut load times by 65% and boosted conversions 32%."</div><div class="testimonial-author"><div class="author-avatar">WL</div><div class="author-info"><strong>Wei-Lin Tan</strong><span>Founder, Omni Retail SG 🇸🇬</span><div class="rating">★★★★★</div></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-text">"Custom WordPress LMS serves 7,000+ students across AU/NZ. Flawless security and UX."</div><div class="testimonial-author"><div class="author-avatar">PS</div><div class="author-info"><strong>Dr. Priya Sharma</strong><span>Director, EduFuture Academy 🇦🇺</span><div class="rating">★★★★½</div></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-text">"CRO audit uncovered $200k opportunities. GA4 setup gave crystal-clear insights."</div><div class="testimonial-author"><div class="author-avatar">MK</div><div class="author-info"><strong>Michael K.</strong><span>E-comm Director, Vitality Brands 🇺🇸</span><div class="rating">★★★★★</div></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT (Interactive professional) -->
+<!-- ABOUT SECTION (WhatsApp button properly styled) -->
 <section class="section" id="about">
   <div class="container about-wrapper">
     <div class="about-section">
@@ -743,7 +764,12 @@
         <div class="about-right">
           <div class="bio-text"><p><span class="highlight-text"><i class="fas fa-bullseye"></i> Results-driven Digital Marketing Specialist</span> with 12+ years boosting ROI via Google Ads, Meta Ads, and data-driven web development.</p><p>Skilled in A/B testing, landing page optimization, full-stack dev (WordPress/Shopify). I bridge creative & technical expertise for global brands.</p></div>
           <div class="info-dashboard"><div class="info-row"><div class="info-icon"><i class="fas fa-briefcase"></i></div><div class="info-detail"><strong>Experience</strong><span>12+ Years (Freelance & Agency) — E-commerce, SaaS, Corporate</span></div></div><div class="info-row"><div class="info-icon"><i class="fas fa-graduation-cap"></i></div><div class="info-detail"><strong>Education</strong><span>BS IT, WMSU (2008) | Certified Digital Marketing Strategist</span></div></div><div class="info-row"><div class="info-icon"><i class="fas fa-map-marker-alt"></i></div><div class="info-detail"><strong>Location</strong><span>Negros Oriental, Philippines (Remote: US/SG/AU/EU)</span></div></div><div class="info-row"><div class="info-icon"><i class="fas fa-calendar-alt"></i></div><div class="info-detail"><strong>Availability</strong><span>Open for freelance & full-time remote <span class="availability-status"><i class="fas fa-circle"></i> Accepting</span></span></div></div></div>
-          <div class="call-action"><button class="btn-connect" onclick="location.href='#contact'"><i class="fas fa-paper-plane"></i> Hire me</button><button class="btn-connect outline" onclick="window.open('https://www.linkedin.com/in/stephensmcichon/','_blank')"><i class="fab fa-linkedin"></i> LinkedIn</button><button class="btn-connect outline" onclick="alert('📧 stephen.tfe@gmail.com | Let’s talk!')"><i class="fas fa-calendar-check"></i> 15-min call</button></div>
+          <!-- FIXED WhatsApp button: proper spacing, icon, and style -->
+          <div class="call-action">
+            <a href="#contact" class="btn-connect"><i class="fas fa-paper-plane"></i> Hire me</a>
+            <a href="https://wa.me/639611214870?text=Hi%20Stephen,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" class="btn-connect whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Me</a>
+            <button class="btn-connect outline" onclick="alert('📧 stephen.tfe@gmail.com | Let’s talk on a quick 15-min call!')"><i class="fas fa-calendar-check"></i> 15-min call</button>
+          </div>
           <p style="font-size:0.7rem; margin-top:1rem; border-left:2px solid #e67e22; padding-left:0.8rem;">⚡ Available for high-impact collaborations worldwide.</p>
         </div>
       </div>
@@ -757,13 +783,39 @@
     <h2 class="section-title">Keep In Touch</h2>
     <p class="section-sub">Available for freelance projects and full-time roles — worldwide</p>
     <div class="contact-grid">
-      <div><div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><strong>Email</strong><br><a href="mailto:stephen.tfe@gmail.com" style="color:#e67e22;">stephen.tfe@gmail.com</a></div></div><div class="contact-item"><div class="contact-icon"><i class="fab fa-linkedin"></i></div><div><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/stephensmcichon/" target="_blank" style="color:#e67e22;">linkedin.com/in/stephensmcichon</a></div></div><div class="contact-item"><div class="contact-icon"><i class="fab fa-github"></i></div><div><strong>GitHub</strong><br><a href="https://github.com/stephensmcichon-oss" target="_blank" style="color:#e67e22;">github.com/stephensmcichon-oss</a></div></div><div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><strong>Location</strong><br>Negros Oriental, Philippines (Remote)</div></div><div style="background:rgba(230,126,34,0.15); border-radius:30px; padding:0.7rem; text-align:center;"><i class="fas fa-clock"></i> Response within 12 hours | Global timezones</div></div>
-      <form action="https://formsubmit.co/stephen.tfe@gmail.com" method="POST"><input type="text" name="_honey" style="display:none"><input type="hidden" name="_next" value="https://stephensmcichon-oss.github.io/myownportfolio/"><input type="hidden" name="_captcha" value="false"><div style="position:relative;"><i class="fas fa-user" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><input type="text" name="name" placeholder="Your Name" required style="padding-left:2.5rem;"></div><div style="position:relative;"><i class="fas fa-envelope" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><input type="email" name="email" placeholder="Your Email" required style="padding-left:2.5rem;"></div><div style="position:relative;"><i class="fas fa-globe" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><input type="text" name="location" placeholder="Your Country (US, SG, AU, etc.)" style="padding-left:2.5rem;"></div><div style="position:relative;"><i class="fas fa-comment" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><textarea name="message" placeholder="Tell me about your project & goals..." required style="padding-left:2.5rem;"></textarea></div><button type="submit"><i class="fas fa-paper-plane"></i> Send Message →</button></form>
+      <div>
+        <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><strong>Email</strong><br><a href="mailto:stephen.tfe@gmail.com" style="color:#e67e22;">stephen.tfe@gmail.com</a></div></div>
+        <div class="contact-item"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><div><strong>WhatsApp</strong><br><a href="https://wa.me/639611214870?text=Hi%20Stephen,%20I%20saw%20your%20portfolio" target="_blank" style="color:#25D366; text-decoration:none; font-weight:600;">+63 961 121 4870</a></div></div>
+        <div class="contact-item"><div class="contact-icon"><i class="fab fa-linkedin"></i></div><div><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/stephensmcichon/" target="_blank" style="color:#e67e22;">linkedin.com/in/stephensmcichon</a></div></div>
+        <div class="contact-item"><div class="contact-icon"><i class="fab fa-github"></i></div><div><strong>GitHub</strong><br><a href="https://github.com/stephensmcichon-oss" target="_blank" style="color:#e67e22;">github.com/stephensmcichon-oss</a></div></div>
+        <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><strong>Location</strong><br>Negros Oriental, Philippines (Remote)</div></div>
+        <div style="background:rgba(230,126,34,0.15); border-radius:30px; padding:0.7rem; text-align:center;"><i class="fas fa-clock"></i> Response within 12 hours | Global timezones</div>
+      </div>
+      <form action="https://formsubmit.co/stephen.tfe@gmail.com" method="POST">
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_next" value="https://stephensmcichon-oss.github.io/myownportfolio/">
+        <input type="hidden" name="_captcha" value="false">
+        <div style="position:relative;"><i class="fas fa-user" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><input type="text" name="name" placeholder="Your Name" required style="padding-left:2.5rem;"></div>
+        <div style="position:relative;"><i class="fas fa-envelope" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><input type="email" name="email" placeholder="Your Email" required style="padding-left:2.5rem;"></div>
+        <div style="position:relative;"><i class="fab fa-whatsapp" style="position:absolute; left:12px; top:12px; color:#25D366;"></i><input type="text" name="phone" placeholder="Your WhatsApp (optional)" style="padding-left:2.5rem;"></div>
+        <div style="position:relative;"><i class="fas fa-globe" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><input type="text" name="location" placeholder="Your Country" style="padding-left:2.5rem;"></div>
+        <div style="position:relative;"><i class="fas fa-comment" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><textarea name="message" placeholder="Tell me about your project & goals..." required style="padding-left:2.5rem;"></textarea></div>
+        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message →</button>
+      </form>
     </div>
   </div>
 </section>
 
-<footer class="footer"><p>&copy; 2026 Stephen S. Cichon. All rights reserved.</p><p>Digital Marketing Specialist | WordPress Developer | Shopify Expert</p><div class="social-links"><a href="https://www.linkedin.com/in/stephensmcichon/" target="_blank"><i class="fab fa-linkedin"></i></a><a href="https://github.com/stephensmcichon-oss" target="_blank"><i class="fab fa-github"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-upwork"></i></a></div></footer>
+<footer class="footer">
+  <p>&copy; 2026 Stephen S. Cichon. All rights reserved.</p>
+  <p>Digital Marketing Specialist | WordPress Developer | Shopify Expert</p>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/stephensmcichon/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/stephensmcichon-oss" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://wa.me/639611214870?text=Hi%20Stephen,%20I%20saw%20your%20portfolio" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="#"><i class="fab fa-upwork"></i></a>
+  </div>
+</footer>
 
 <script>
   function toggleMenu() { document.getElementById('navLinks').classList.toggle('show'); }
@@ -774,7 +826,6 @@
       if (target) { target.scrollIntoView({ behavior: 'smooth' }); document.getElementById('navLinks')?.classList.remove('show'); }
     });
   });
-  // Add fade-in animation on scroll
   const fadeElements = document.querySelectorAll('.card, .port-card, .testimonial-card, .stat-card, .info-row');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('fade-slide'); });
