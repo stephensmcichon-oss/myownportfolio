@@ -91,13 +91,61 @@
       color: white;
     }
 
-    /* Hero */
+    /* Hero Section with Profile Picture */
     .hero {
       background: linear-gradient(135deg, #0f4c5c 0%, #1a1a2e 100%);
       color: white;
       text-align: center;
-      padding: 8rem 1.5rem 5rem;
+      padding: 7rem 1.5rem 5rem;
       margin-top: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(230,126,34,0.15) 0%, rgba(230,126,34,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(230,126,34,0.1) 0%, rgba(230,126,34,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero-image {
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+    .profile-hero {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(230, 126, 34, 0.6);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .profile-hero:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      border-color: #e67e22;
     }
     .hero h1 {
       font-size: 2.5rem;
@@ -114,6 +162,19 @@
       max-width: 36rem;
       margin-left: auto;
       margin-right: auto;
+    }
+    /* Badge decoration */
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      margin-top: 1rem;
+      font-weight: 500;
     }
 
     /* Sections */
@@ -313,7 +374,7 @@
       font-size: 0.75rem;
     }
 
-    /* ABOUT SECTION (Interactive + Professional) */
+    /* ABOUT SECTION */
     .about-wrapper {
       max-width: 1200px;
       margin: 0 auto;
@@ -672,6 +733,10 @@
       .btn-connect {
         justify-content: center;
       }
+      .profile-hero {
+        width: 100px;
+        height: 100px;
+      }
     }
     .fade-slide {
       animation: fadeSlideUp 0.5s ease forwards;
@@ -699,13 +764,22 @@
   </div>
 </nav>
 
+<!-- HERO SECTION WITH PROFILE PICTURE (Professional UI) -->
 <section class="hero" id="home">
-  <h1>Hi, I'm <span class="highlight">Stephen S. Cichon</span></h1>
-  <p>Digital Marketing Specialist & WordPress/Shopify Developer</p>
-  <p class="hero-sub">I help brands increase conversions through high-performing ads + fast, SEO-optimized websites</p>
-  <div>
-    <a href="#portfolio" class="btn btn-primary"><i class="fas fa-briefcase"></i> View My Work</a>
-    <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+  <div class="hero-content">
+    <div class="hero-image">
+      <img src="profile.jpg.jpg" alt="Stephen S. Cichon" class="profile-hero" onerror="this.onerror=null; this.src='https://via.placeholder.com/130x130?text=Stephen';">
+    </div>
+    <h1>Hi, I'm <span class="highlight">Stephen S. Cichon</span></h1>
+    <p>Digital Marketing Specialist & WordPress/Shopify Developer</p>
+    <p class="hero-sub">I help brands increase conversions through high-performing ads + fast, SEO-optimized websites</p>
+    <div class="availability-badge">
+      <i class="fas fa-circle" style="color: #4ade80; font-size: 0.6rem;"></i> Available for freelance & full-time roles
+    </div>
+    <div style="margin-top: 1.5rem;">
+      <a href="#portfolio" class="btn btn-primary"><i class="fas fa-briefcase"></i> View My Work</a>
+      <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+    </div>
   </div>
 </section>
 
@@ -750,7 +824,7 @@
   </div>
 </section>
 
-<!-- ABOUT SECTION (WhatsApp button properly styled) -->
+<!-- ABOUT SECTION (WhatsApp button) -->
 <section class="section" id="about">
   <div class="container about-wrapper">
     <div class="about-section">
@@ -764,7 +838,6 @@
         <div class="about-right">
           <div class="bio-text"><p><span class="highlight-text"><i class="fas fa-bullseye"></i> Results-driven Digital Marketing Specialist</span> with 12+ years boosting ROI via Google Ads, Meta Ads, and data-driven web development.</p><p>Skilled in A/B testing, landing page optimization, full-stack dev (WordPress/Shopify). I bridge creative & technical expertise for global brands.</p></div>
           <div class="info-dashboard"><div class="info-row"><div class="info-icon"><i class="fas fa-briefcase"></i></div><div class="info-detail"><strong>Experience</strong><span>12+ Years (Freelance & Agency) — E-commerce, SaaS, Corporate</span></div></div><div class="info-row"><div class="info-icon"><i class="fas fa-graduation-cap"></i></div><div class="info-detail"><strong>Education</strong><span>BS IT, WMSU (2008) | Certified Digital Marketing Strategist</span></div></div><div class="info-row"><div class="info-icon"><i class="fas fa-map-marker-alt"></i></div><div class="info-detail"><strong>Location</strong><span>Negros Oriental, Philippines (Remote: US/SG/AU/EU)</span></div></div><div class="info-row"><div class="info-icon"><i class="fas fa-calendar-alt"></i></div><div class="info-detail"><strong>Availability</strong><span>Open for freelance & full-time remote <span class="availability-status"><i class="fas fa-circle"></i> Accepting</span></span></div></div></div>
-          <!-- FIXED WhatsApp button: proper spacing, icon, and style -->
           <div class="call-action">
             <a href="#contact" class="btn-connect"><i class="fas fa-paper-plane"></i> Hire me</a>
             <a href="https://wa.me/639611214870?text=Hi%20Stephen,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" class="btn-connect whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Me</a>
