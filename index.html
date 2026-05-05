@@ -390,14 +390,22 @@
         <p style="margin-top: 1rem;">Book a free 15-min discovery call to discuss your project goals.</p>
       </div>
 
-      <!-- FORMSPREE FORM WITH YOUR CUSTOM URL -->
-      <form id="contactForm">
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
-        <input type="text" id="subject" name="_subject" placeholder="Subject">
-        <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
-        <button type="submit" id="submitBtn">Send Message →</button>
-        <div id="formStatus" class="form-status"></div>
+      <!-- WORKING FORM using FormSubmit (no account needed) -->
+      <form action="https://formsubmit.co/stephen.tfe@gmail.com" method="POST">
+        <!-- Honeypot spam protection -->
+        <input type="text" name="_honey" style="display:none">
+        
+        <!-- Redirect back to portfolio after submit (optional) -->
+        <input type="hidden" name="_next" value="https://stephensmcichon-oss.github.io/myownportfolio/">
+        
+        <!-- Don't include captcha for simplicity -->
+        <input type="hidden" name="_captcha" value="false">
+        
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="_subject" placeholder="Subject">
+        <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+        <button type="submit">Send Message →</button>
       </form>
     </div>
   </div>
