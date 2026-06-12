@@ -1,909 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Stephen Cichon | Digital Marketing & Web Development Portfolio</title>
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.5;
-      color: #111827;
-      background-color: #f9fafb;
-    }
-
-    /* Navigation */
-    .nav {
-      background: white;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-    }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #0f4c5c;
-      text-decoration: none;
-    }
-    .logo span { color: #e67e22; }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: #374151;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: #e67e22; }
-    .menu-btn {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.75rem;
-      border-radius: 9999px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.2s;
-      margin: 0.25rem;
-    }
-    .btn-primary {
-      background-color: #e67e22;
-      color: white;
-      border: none;
-    }
-    .btn-primary:hover {
-      background-color: #d35400;
-      transform: scale(1.02);
-    }
-    .btn-outline {
-      border: 2px solid #e67e22;
-      color: #e67e22;
-      background: transparent;
-    }
-    .btn-outline:hover {
-      background-color: #e67e22;
-      color: white;
-    }
-
-    /* Hero Section with Profile Picture */
-    .hero {
-      background: linear-gradient(135deg, #0f4c5c 0%, #1a1a2e 100%);
-      color: white;
-      text-align: center;
-      padding: 7rem 1.5rem 5rem;
-      margin-top: 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(230,126,34,0.15) 0%, rgba(230,126,34,0) 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -20%;
-      left: -10%;
-      width: 250px;
-      height: 250px;
-      background: radial-gradient(circle, rgba(230,126,34,0.1) 0%, rgba(230,126,34,0) 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .hero-image {
-      margin-bottom: 1.5rem;
-      display: inline-block;
-    }
-    .profile-hero {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid rgba(230, 126, 34, 0.6);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .profile-hero:hover {
-      transform: scale(1.02);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-      border-color: #e67e22;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .hero .highlight { color: #e67e22; }
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
-      opacity: 0.9;
-    }
-    .hero-sub {
-      font-size: 1rem !important;
-      max-width: 36rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    /* Badge decoration */
-    .availability-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(8px);
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      margin-top: 1rem;
-      font-weight: 500;
-    }
-
-    /* Sections */
-    .section {
-      padding: 4rem 1.5rem;
-    }
-    .section-dark {
-      background-color: #111827;
-      color: white;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section-title {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 0.75rem;
-    }
-    .section-sub {
-      text-align: center;
-      color: #6b7280;
-      margin-bottom: 3rem;
-    }
-    .section-dark .section-sub {
-      color: #9ca3af;
-    }
-
-    /* Cards grid */
-    .grid-4, .grid-3, .grid-2 {
-      display: grid;
-      gap: 1.5rem;
-    }
-    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-
-    /* Service Cards */
-    .card {
-      background: white;
-      padding: 1.8rem 1.5rem;
-      border-radius: 1rem;
-      text-align: center;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      transition: transform 0.2s, box-shadow 0.2s;
-      height: 100%;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -12px rgba(0,0,0,0.15);
-    }
-    .card-icon {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-      color: #e67e22;
-    }
-    .card h3 {
-      color: #0f4c5c;
-      margin-bottom: 0.75rem;
-      font-size: 1.3rem;
-    }
-    .card p {
-      color: #4b5563;
-      font-size: 0.9rem;
-    }
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-    .tag {
-      background: #e5e7eb;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.7rem;
-      color: #374151;
-      font-weight: 500;
-    }
-
-    /* Portfolio case study cards */
-    .port-card {
-      background: white;
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      transition: transform 0.2s, box-shadow 0.2s;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    .port-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
-    }
-    .port-icon {
-      background: linear-gradient(135deg, #0f4c5c, #e67e22);
-      padding: 2rem;
-      text-align: center;
-      font-size: 2.5rem;
-      color: white;
-    }
-    .port-content { 
-      padding: 1.5rem; 
-      color: #111827; 
-      flex: 1; 
-      display: flex; 
-      flex-direction: column; 
-    }
-    .port-content h3 { 
-      color: #0f4c5c; 
-      margin-bottom: 0.75rem; 
-      font-size: 1.3rem; 
-    }
-    .challenge-solution {
-      margin: 0.5rem 0;
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-    .result-badge {
-      background: #e67e22;
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 2rem;
-      display: inline-block;
-      font-weight: bold;
-      font-size: 0.75rem;
-      margin-top: 1rem;
-      text-align: center;
-      align-self: flex-start;
-    }
-    .port-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0 0.5rem;
-    }
-    .port-tag {
-      background: #e5e7eb;
-      padding: 0.2rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.7rem;
-    }
-
-    /* Testimonials */
-    .testimonial-card {
-      background: white;
-      padding: 1.8rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.2s;
-      height: 100%;
-    }
-    .testimonial-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    .testimonial-text {
-      font-style: italic;
-      margin-bottom: 1.2rem;
-      color: #1f2a3e;
-      line-height: 1.5;
-      font-size: 0.95rem;
-    }
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      border-top: 1px solid #e5e7eb;
-      padding-top: 1rem;
-    }
-    .author-avatar {
-      width: 48px;
-      height: 48px;
-      background: #0f4c5c;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    .author-info strong {
-      display: block;
-      color: #0f4c5c;
-    }
-    .author-info span {
-      font-size: 0.75rem;
-      color: #6b7280;
-    }
-    .rating {
-      color: #e67e22;
-      letter-spacing: 2px;
-      margin-top: 0.3rem;
-      font-size: 0.75rem;
-    }
-
-    /* ABOUT SECTION */
-    .about-wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .about-section {
-      background: #ffffff;
-      border-radius: 1.5rem;
-      overflow: hidden;
-      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(230, 126, 34, 0.15);
-    }
-    .about-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 0;
-    }
-    .about-left {
-      background: linear-gradient(125deg, #0f2b33 0%, #1a3a44 100%);
-      padding: 2.5rem 2rem;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-    .about-left::before {
-      content: '';
-      position: absolute;
-      top: -30%;
-      right: -20%;
-      width: 280px;
-      height: 280px;
-      background: radial-gradient(circle, rgba(230,126,34,0.18) 0%, rgba(230,126,34,0) 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .profile-header {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    .avatar-frame {
-      width: 85px;
-      height: 85px;
-      background: linear-gradient(135deg, #e67e22, #f39c12);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-    .avatar-frame img {
-      width: 77px;
-      height: 77px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid white;
-    }
-    .name-title h3 {
-      font-size: 1.7rem;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-    }
-    .name-title p {
-      opacity: 0.8;
-      font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 0.3rem;
-      flex-wrap: wrap;
-    }
-    .badge-light {
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(4px);
-      padding: 0.2rem 0.75rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 500;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-    .stat-card {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(2px);
-      border-radius: 1.2rem;
-      padding: 1rem 0.8rem;
-      text-align: center;
-      transition: all 0.25s ease;
-      cursor: default;
-      border: 1px solid rgba(230,126,34,0.4);
-    }
-    .stat-card:hover {
-      transform: translateY(-5px);
-      background: rgba(230,126,34,0.2);
-      border-color: #e67e22;
-    }
-    .stat-number {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: #f39c12;
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 0.5rem;
-      opacity: 0.85;
-    }
-    .tool-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin: 1.8rem 0 1rem;
-    }
-    .tool-pill {
-      background: rgba(255,255,255,0.1);
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: 0.2s;
-    }
-    .tool-pill i {
-      color: #e67e22;
-      font-size: 0.7rem;
-    }
-    .tool-pill:hover {
-      background: #e67e22;
-      color: #1f2e35;
-      transform: scale(1.03);
-    }
-    .cert-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-    .cert-badge {
-      background: rgba(255,255,255,0.08);
-      border-radius: 60px;
-      padding: 0.35rem 1rem;
-      font-size: 0.7rem;
-      font-weight: 500;
-      border-left: 2px solid #e67e22;
-    }
-    .about-right {
-      background: white;
-      padding: 2.5rem 2rem;
-    }
-    .bio-text {
-      margin-bottom: 1.8rem;
-      line-height: 1.6;
-      color: #1f2a44;
-    }
-    .bio-text p {
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-    .highlight-text {
-      color: #e67e22;
-      font-weight: 600;
-    }
-    .info-dashboard {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-    .info-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.7rem 0;
-      border-bottom: 1px solid #eef2f8;
-      transition: 0.2s;
-    }
-    .info-row:hover {
-      transform: translateX(5px);
-      border-bottom-color: #e67e22;
-    }
-    .info-icon {
-      width: 38px;
-      height: 38px;
-      background: #fef5eb;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #e67e22;
-      font-size: 1.2rem;
-    }
-    .info-detail strong {
-      color: #0f4c5c;
-      font-weight: 700;
-      display: block;
-      font-size: 0.85rem;
-    }
-    .info-detail span {
-      color: #3a4b60;
-      font-size: 0.9rem;
-    }
-    .availability-status {
-      background: #e8f5e9;
-      border-radius: 40px;
-      padding: 0.3rem 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #2e7d32;
-    }
-    .call-action {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .btn-connect {
-      background: #e67e22;
-      color: white;
-      border: none;
-      padding: 0.8rem 1.6rem;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: 0.2s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      text-decoration: none;
-      font-family: inherit;
-      line-height: 1;
-    }
-    .btn-connect.outline {
-      background: transparent;
-      border: 1.5px solid #e67e22;
-      color: #e67e22;
-    }
-    .btn-connect.outline:hover {
-      background: #e67e22;
-      color: white;
-    }
-    .btn-connect.whatsapp {
-      background: #25D366;
-      border-color: #25D366;
-      color: white;
-    }
-    .btn-connect.whatsapp:hover {
-      background: #128C7E;
-      border-color: #128C7E;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(37, 211, 102, 0.25);
-    }
-    .btn-connect i {
-      font-size: 1rem;
-    }
-    /* Contact */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-    .contact-icon {
-      font-size: 1.5rem;
-      width: 2.5rem;
-      color: #e67e22;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #d1d5db;
-      border-radius: 0.5rem;
-      font-family: inherit;
-      transition: border-color 0.2s;
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #e67e22;
-    }
-    textarea { height: 6rem; }
-    button {
-      background: #e67e22;
-      color: white;
-      border: none;
-      padding: 0.75rem;
-      width: 100%;
-      border-radius: 9999px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    button:hover { background: #d35400; }
-    .footer {
-      background: #1f2937;
-      color: white;
-      text-align: center;
-      padding: 2rem;
-    }
-    .social-links {
-      margin-top: 1rem;
-    }
-    .social-links a {
-      color: white;
-      margin: 0 0.75rem;
-      font-size: 1.25rem;
-      transition: color 0.2s;
-    }
-    .social-links a:hover {
-      color: #e67e22;
-    }
-    @media (max-width: 900px) {
-      .about-inner { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 768px) {
-      .menu-btn { display: block; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 4rem;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        padding: 1rem;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      }
-      .nav-links.show { display: flex; }
-      .hero h1 { font-size: 1.8rem; }
-      .section-title { font-size: 1.6rem; }
-      .call-action {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .btn-connect {
-        justify-content: center;
-      }
-      .profile-hero {
-        width: 100px;
-        height: 100px;
-      }
-    }
-    .fade-slide {
-      animation: fadeSlideUp 0.5s ease forwards;
-    }
-    @keyframes fadeSlideUp {
-      0% { opacity: 0; transform: translateY(20px);}
-      100% { opacity: 1; transform: translateY(0);}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephen Cichon | AI Integration & Automation Specialist</title>
+    <meta name="description" content="Portfolio and Resume of Stephen Cichon, AI Integration & Automation Specialist and Full-Stack Developer based in Negros Oriental.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="#" class="logo">Stephen<span>Cichon</span></a>
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- HERO SECTION WITH PROFILE PICTURE (Professional UI) -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-image">
-      <img src="profile.jpg.jpg" alt="Stephen S. Cichon" class="profile-hero" onerror="this.onerror=null; this.src='https://via.placeholder.com/130x130?text=Stephen';">
-    </div>
-    <h1>Hi, I'm <span class="highlight">Stephen S. Cichon</span></h1>
-    <p>Digital Marketing Specialist & WordPress/Shopify Developer</p>
-    <p class="hero-sub">I help brands increase conversions through high-performing ads + fast, SEO-optimized websites</p>
-    <div class="availability-badge">
-      <i class="fas fa-circle" style="color: #4ade80; font-size: 0.6rem;"></i> Available for freelance & full-time roles
-    </div>
-    <div style="margin-top: 1.5rem;">
-      <a href="resume.pdf" class="btn btn-primary"><i class="fas fa-briefcase"></i> Download My Resume</a>
-      <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT I DO -->
-<section class="section" id="services">
-  <div class="container">
-    <h2 class="section-title">What I Do</h2>
-    <p class="section-sub">Specialized services to scale your business globally</p>
-    <div class="grid-4">
-      <div class="card"><div class="card-icon"><i class="fab fa-google"></i></div><h3>Google Ads</h3><p>High-ROI campaign management, keyword research, A/B testing for US, SG & AU markets.</p><div class="tags"><span class="tag">Search Ads</span><span class="tag">Shopping</span></div></div>
-      <div class="card"><div class="card-icon"><i class="fab fa-wordpress"></i></div><h3>WordPress Development</h3><p>Custom themes/plugins, speed optimization, WooCommerce solutions for global e-commerce.</p><div class="tags"><span class="tag">PHP</span><span class="tag">WooCommerce</span></div></div>
-      <div class="card"><div class="card-icon"><i class="fab fa-shopify"></i></div><h3>Shopify Development</h3><p>Theme customization, Liquid coding, app integration, performance tuning.</p><div class="tags"><span class="tag">Liquid</span><span class="tag">Speed</span></div></div>
-      <div class="card"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>CRO & Analytics</h3><p>GA4, GTM, heatmaps, A/B testing, conversion audits to maximize revenue.</p><div class="tags"><span class="tag">GA4</span><span class="tag">Hotjar</span></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURED PROJECTS -->
-<section class="section section-dark" id="portfolio">
-  <div class="container">
-    <h2 class="section-title">Featured Projects</h2>
-    <p class="section-sub">Case studies: from challenge to measurable ROI</p>
-    <div class="grid-3">
-      <div class="port-card"><div class="port-icon"><i class="fas fa-chart-simple"></i></div><div class="port-content"><h3>Global E-commerce ROAS Boost</h3><div class="challenge-solution"><strong>Challenge:</strong> US outdoor retailer low ROAS (2.5x) across US/SG/AU.</div><div class="challenge-solution"><strong>Action:</strong> Geo-targeted campaigns, tROAS bidding, local feed optimization.</div><div><strong>Result:</strong> <span style="color:#e67e22;">ROAS ↑ 4.2x</span>, CPA ↓32% in 3 months.</div><div class="result-badge"><i class="fas fa-globe"></i> +68% ROAS</div><div class="port-tags"><span class="port-tag">Google Ads</span><span class="port-tag">International</span></div></div></div>
-      <div class="port-card"><div class="port-icon"><i class="fas fa-graduation-cap"></i></div><div class="port-content"><h3>Custom WordPress LMS (APAC)</h3><div class="challenge-solution"><strong>Challenge:</strong> Australian client needed scalable LMS for 5k+ users.</div><div class="challenge-solution"><strong>Action:</strong> Built LearnDash + custom PHP, Zoom API, AWS CDN.</div><div><strong>Result:</strong> 5,200+ users, course completion ↑40%.</div><div class="result-badge"><i class="fas fa-users"></i> 5,200+ learners</div><div class="port-tags"><span class="port-tag">WordPress</span><span class="port-tag">LMS</span></div></div></div>
-      <div class="port-card"><div class="port-icon"><i class="fas fa-rocket"></i></div><div class="port-content"><h3>Shopify Performance Overhaul</h3><div class="challenge-solution"><strong>Challenge:</strong> US beauty brand: 45 Lighthouse score, high bounce.</div><div class="challenge-solution"><strong>Action:</strong> Removed bloat, WebP, lazy loading, Liquid optimization.</div><div><strong>Result:</strong> Lighthouse 45→94, CVR ↑28%, revenue +$340K/yr.</div><div class="result-badge"><i class="fas fa-tachometer-alt"></i> 94 Score | +28% CVR</div><div class="port-tags"><span class="port-tag">Shopify</span><span class="port-tag">Speed</span></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section" id="testimonials">
-  <div class="container">
-    <h2 class="section-title">Trusted by Global Brands</h2>
-    <p class="section-sub">Real feedback from United States, Singapore & Australia</p>
-    <div class="grid-2">
-      <div class="testimonial-card"><div class="testimonial-text">"Stephen's Google Ads expertise transformed our revenue. Delivered 158% ROI increase within 90 days."</div><div class="testimonial-author"><div class="author-avatar">JM</div><div class="author-info"><strong>Jessica Martinez</strong><span>CMO, LuxeStyle Co. (USA) 🇺🇸</span><div class="rating">★★★★★</div></div></div></div>
-      <div class="testimonial-card"><div class="testimonial-text">"Our Shopify store was bleeding customers. Stephen cut load times by 65% and boosted conversions 32%."</div><div class="testimonial-author"><div class="author-avatar">WL</div><div class="author-info"><strong>Wei-Lin Tan</strong><span>Founder, Omni Retail SG 🇸🇬</span><div class="rating">★★★★★</div></div></div></div>
-      <div class="testimonial-card"><div class="testimonial-text">"Custom WordPress LMS serves 7,000+ students across AU/NZ. Flawless security and UX."</div><div class="testimonial-author"><div class="author-avatar">PS</div><div class="author-info"><strong>Dr. Priya Sharma</strong><span>Director, EduFuture Academy 🇦🇺</span><div class="rating">★★★★½</div></div></div></div>
-      <div class="testimonial-card"><div class="testimonial-text">"CRO audit uncovered $200k opportunities. GA4 setup gave crystal-clear insights."</div><div class="testimonial-author"><div class="author-avatar">MK</div><div class="author-info"><strong>Michael K.</strong><span>E-comm Director, Vitality Brands 🇺🇸</span><div class="rating">★★★★★</div></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT SECTION (WhatsApp button) -->
-<section class="section" id="about">
-  <div class="container about-wrapper">
-    <div class="about-section">
-      <div class="about-inner">
-        <div class="about-left">
-          <div class="profile-header"><div class="avatar-frame"><img src="profile.jpg.jpg" alt="Stephen"></div><div class="name-title"><h3>Stephen S. Cichon</h3><p><i class="fas fa-certificate"></i> Digital Marketing & Dev Expert <span class="badge-light">12+ yrs</span></p></div></div>
-          <div class="stats-grid"><div class="stat-card"><div class="stat-number">12+</div><div class="stat-label">Years Exp</div></div><div class="stat-card"><div class="stat-number">98%</div><div class="stat-label">Retention</div></div><div class="stat-card"><div class="stat-number">150+</div><div class="stat-label">Projects</div></div><div class="stat-card"><div class="stat-number">4.9</div><div class="stat-label">Rating</div></div></div>
-          <div><h4 style="font-size:0.85rem;"><i class="fas fa-code-branch"></i> Technical Toolbox</h4><div class="tool-pills"><span class="tool-pill"><i class="fab fa-google"></i> Google Ads</span><span class="tool-pill"><i class="fas fa-tags"></i> GTM/GA4</span><span class="tool-pill"><i class="fab fa-shopify"></i> Liquid</span><span class="tool-pill"><i class="fab fa-wordpress"></i> WP/Woo</span><span class="tool-pill"><i class="fab fa-php"></i> PHP/Laravel</span></div></div>
-          <div class="cert-row"><div class="cert-badge"><i class="fab fa-google"></i> Google Ads Certified</div><div class="cert-badge"><i class="fas fa-chart-pie"></i> HubSpot CRO</div></div>
+    <div class="blob-bg"></div>
+    <div class="blob-bg blob-2"></div>
+    
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#home" class="logo">S<span>C</span>.</a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">Profile</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
-        <div class="about-right">
-          <div class="bio-text"><p><span class="highlight-text"><i class="fas fa-bullseye"></i> Results-driven Digital Marketing Specialist</span> with 12+ years boosting ROI via Google Ads, Meta Ads, and data-driven web development.</p><p>Skilled in A/B testing, landing page optimization, full-stack dev (WordPress/Shopify). I bridge creative & technical expertise for global brands.</p></div>
-          <div class="info-dashboard"><div class="info-row"><div class="info-icon"><i class="fas fa-briefcase"></i></div><div class="info-detail"><strong>Experience</strong><span>12+ Years (Freelance & Agency) — E-commerce, SaaS, Corporate</span></div></div><div class="info-row"><div class="info-icon"><i class="fas fa-graduation-cap"></i></div><div class="info-detail"><strong>Education</strong><span>BS IT, WMSU (2008) | Certified Digital Marketing Strategist</span></div></div><div class="info-row"><div class="info-icon"><i class="fas fa-map-marker-alt"></i></div><div class="info-detail"><strong>Location</strong><span>Negros Oriental, Philippines (Remote: US/SG/AU/EU)</span></div></div><div class="info-row"><div class="info-icon"><i class="fas fa-calendar-alt"></i></div><div class="info-detail"><strong>Availability</strong><span>Open for freelance & full-time remote <span class="availability-status"><i class="fas fa-circle"></i> Accepting</span></span></div></div></div>
-          <div class="call-action">
-            <a href="#contact" class="btn-connect"><i class="fas fa-paper-plane"></i> Hire me</a>
-            <a href="https://wa.me/639611214870?text=Hi%20Stephen,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" class="btn-connect whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Me</a>
-            <button class="btn-connect outline" onclick="alert('📧 stephen.tfe@gmail.com | Let’s talk on a quick 15-min call!')"><i class="fas fa-calendar-check"></i> 15-min call</button>
-          </div>
-          <p style="font-size:0.7rem; margin-top:1rem; border-left:2px solid #e67e22; padding-left:0.8rem;">⚡ Available for high-impact collaborations worldwide.</p>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero section">
+            <div class="hero-container container">
+                <div class="hero-content">
+                    <div class="badge">Available for Work</div>
+                    <h1 class="glitch-text" data-text="Stephen Cichon">Stephen Cichon</h1>
+                    <h2 class="typing-container">
+                        <span class="typing-text"></span><span class="cursor">|</span>
+                    </h2>
+                    <p class="hero-desc">
+                        Building full-stack SaaS MVPs, internal dashboards, and automated workflows leveraging cutting-edge LLM tools and robust integrations.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn primary-btn">
+                            Get In Touch <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="Stephen Cichon - Resume.pdf" target="_blank" class="btn secondary-btn">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="mailto:stephen.tfe@gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <div class="image-border"></div>
+                    <img src="Profile Picture.jpg" alt="Stephen Cichon" class="hero-img">
+                    <div class="floating-element el-1"><i class="fas fa-robot"></i></div>
+                    <div class="floating-element el-2"><i class="fas fa-code"></i></div>
+                    <div class="floating-element el-3"><i class="fas fa-bolt"></i></div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><span class="highlight">01.</span> Profile</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text glass-card">
+                        <h3>AI Integration & Automation Specialist</h3>
+                        <p>I am a seasoned specialist with hands-on experience using Claude Code and other LLM-assisted development tools. My proven ability lies in building full-stack SaaS MVPs, internal dashboards, and automated workflows using platforms like n8n, Make, Zapier, APIs, webhooks, and JSON.</p>
+                        <p>I have a strong interest in prompt-driven development, AI automation, and seamless systems integration. Working independently, I consistently meet tight deadlines while ensuring clear and concise communication.</p>
+                        
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-value">
+                                    <span class="stat-num" data-val="8">0</span>
+                                </div>
+                                <span class="stat-label">Years Exp.</span>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">
+                                    <span class="stat-num" data-val="100">0</span><span class="stat-plus">+</span>
+                                </div>
+                                <span class="stat-label">Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">
+                                    <span class="stat-num" data-val="40">0</span><span class="stat-plus">%</span>
+                                </div>
+                                <span class="stat-label">Faster Dev</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-info glass-card">
+                        <h3>Personal Info</h3>
+                        <ul class="info-list">
+                            <li>
+                                <span class="info-title">Name</span>
+                                <span class="info-value">Stephen Cichon</span>
+                            </li>
+                            <li>
+                                <span class="info-title">Email</span>
+                                <span class="info-value">stephen.tfe@gmail.com</span>
+                            </li>
+                            <li>
+                                <span class="info-title">Phone</span>
+                                <span class="info-value">+63 9611214870</span>
+                            </li>
+                            <li>
+                                <span class="info-title">Location</span>
+                                <span class="info-value">Negros Oriental</span>
+                            </li>
+                            <li>
+                                <span class="info-title">Languages</span>
+                                <span class="info-value">English</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><span class="highlight">02.</span> Technical Arsenal</h2>
+                </div>
+                
+                <div class="skills-container">
+                    <div class="skill-category glass-card">
+                        <div class="category-header">
+                            <div class="icon-box"><i class="fas fa-brain"></i></div>
+                            <h3>AI-Assisted Dev</h3>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Claude Code</span>
+                            <span class="tag">GPT Engineer</span>
+                            <span class="tag">Prompt Engineering</span>
+                            <span class="tag">Iterative Code Gen</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category glass-card">
+                        <div class="category-header">
+                            <div class="icon-box"><i class="fas fa-cogs"></i></div>
+                            <h3>Automation & API</h3>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">n8n</span>
+                            <span class="tag">Make</span>
+                            <span class="tag">Zapier</span>
+                            <span class="tag">Webhooks</span>
+                            <span class="tag">REST APIs</span>
+                            <span class="tag">JSON</span>
+                            <span class="tag">CRM/ATS Sync</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category glass-card">
+                        <div class="category-header">
+                            <div class="icon-box"><i class="fas fa-layer-group"></i></div>
+                            <h3>Full-Stack</h3>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">jQuery</span>
+                            <span class="tag">AJAX</span>
+                            <span class="tag">Responsive UI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category glass-card">
+                        <div class="category-header">
+                            <div class="icon-box"><i class="fas fa-shopping-cart"></i></div>
+                            <h3>CMS & E-commerce</h3>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">WordPress</span>
+                            <span class="tag">Shopify</span>
+                            <span class="tag">SEO</span>
+                            <span class="tag">Schema Markup</span>
+                            <span class="tag">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><span class="highlight">03.</span> Work History</h2>
+                </div>
+                
+                <div class="timeline">
+                    <!-- Exp 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-date">May 2025 - Apr 2026</div>
+                            <h3 class="timeline-title">AI Integration Specialist</h3>
+                            <p class="timeline-desc">
+                                <ul>
+                                    <li>Leveraged Claude Code to prototype and ship functional web systems, reducing development time by 40% through prompt-driven code generation.</li>
+                                    <li>Built and deployed automation workflows using n8n, Make, and Zapier to connect CRMs, ATS, and data systems.</li>
+                                    <li>Developed full-stack SaaS MVPs and internal dashboards.</li>
+                                    <li>Designed automation scripts for CRM data sync using webhooks and REST APIs, reducing manual entry by 70%+.</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Exp 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-date">Nov 2024 - Mar 2025</div>
+                            <h3 class="timeline-title">Senior WordPress & Shopify Developer (Contract)</h3>
+                            <p class="timeline-desc">
+                                <ul>
+                                    <li>Gathered requirements and translated them into technical specifications.</li>
+                                    <li>Debugged complex software issues for stable product releases.</li>
+                                    <li>Supervised programmers, designers, and technicians.</li>
+                                    <li>Coordinated with cross-functional teams to integrate new features.</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Exp 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-date">Jun 2019 - Oct 2024</div>
+                            <h3 class="timeline-title">Senior WordPress & Shopify Developer</h3>
+                            <p class="timeline-desc">
+                                <ul>
+                                    <li>Conducted code reviews ensuring high-quality standards.</li>
+                                    <li>Reduced development time by creating reusable code libraries.</li>
+                                    <li>Updated old codebases to modern development standards.</li>
+                                    <li>Designed customized solutions for proposals to potential customers.</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Exp 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-date">Oct 2017 - Apr 2019</div>
+                            <h3 class="timeline-title">UX/UI Designer & Developer</h3>
+                            <p class="timeline-desc">
+                                <ul>
+                                    <li>Conducted competitive analysis of UX/UI trends.</li>
+                                    <li>Reduced project timelines utilizing agile design processes.</li>
+                                    <li>Improved website conversion rates through strategic placement of CTA elements.</li>
+                                    <li>Designed engaging, consistent visuals across devices.</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <div class="container">
+                <div class="contact-wrapper glass-card">
+                    <div class="contact-info">
+                        <h2>Let's build something <span class="gradient-text">amazing</span></h2>
+                        <p>Currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>
+                                    <h4>Location</h4>
+                                    <p>Negros Oriental, Philippines</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="c-icon"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:stephen.tfe@gmail.com">stephen.tfe@gmail.com</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="c-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <p>+63 9611214870</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" required placeholder=" ">
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" required placeholder=" ">
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" required placeholder=" " rows="5"></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                        <button type="submit" class="btn primary-btn submit-btn">
+                            <span>Send Message</span> <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#home" class="logo">S<span>C</span>.</a>
+                <p class="copyright">&copy; 2026 Stephen Cichon. All rights reserved.</p>
+                <div class="social-links small">
+                    <a href="mailto:stephen.tfe@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </footer>
 
-<!-- KEEP IN TOUCH -->
-<section class="section section-dark" id="contact">
-  <div class="container">
-    <h2 class="section-title">Keep In Touch</h2>
-    <p class="section-sub">Available for freelance projects and full-time roles — worldwide</p>
-    <div class="contact-grid">
-      <div>
-        <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><strong>Email</strong><br><a href="mailto:stephen.tfe@gmail.com" style="color:#e67e22;">stephen.tfe@gmail.com</a></div></div>
-        <div class="contact-item"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><div><strong>WhatsApp</strong><br><a href="https://wa.me/639611214870?text=Hi%20Stephen,%20I%20saw%20your%20portfolio" target="_blank" style="color:#25D366; text-decoration:none; font-weight:600;">+63 961 121 4870</a></div></div>
-        <div class="contact-item"><div class="contact-icon"><i class="fab fa-linkedin"></i></div><div><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/stephensmcichon/" target="_blank" style="color:#e67e22;">linkedin.com/in/stephensmcichon</a></div></div>
-        <div class="contact-item"><div class="contact-icon"><i class="fab fa-github"></i></div><div><strong>GitHub</strong><br><a href="https://github.com/stephensmcichon-oss" target="_blank" style="color:#e67e22;">github.com/stephensmcichon-oss</a></div></div>
-        <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><strong>Location</strong><br>Negros Oriental, Philippines (Remote)</div></div>
-        <div style="background:rgba(230,126,34,0.15); border-radius:30px; padding:0.7rem; text-align:center;"><i class="fas fa-clock"></i> Response within 12 hours | Global timezones</div>
-      </div>
-      <form action="https://formsubmit.co/stephen.tfe@gmail.com" method="POST">
-        <input type="text" name="_honey" style="display:none">
-        <input type="hidden" name="_next" value="https://stephensmcichon-oss.github.io/myownportfolio/">
-        <input type="hidden" name="_captcha" value="false">
-        <div style="position:relative;"><i class="fas fa-user" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><input type="text" name="name" placeholder="Your Name" required style="padding-left:2.5rem;"></div>
-        <div style="position:relative;"><i class="fas fa-envelope" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><input type="email" name="email" placeholder="Your Email" required style="padding-left:2.5rem;"></div>
-        <div style="position:relative;"><i class="fab fa-whatsapp" style="position:absolute; left:12px; top:12px; color:#25D366;"></i><input type="text" name="phone" placeholder="Your WhatsApp (optional)" style="padding-left:2.5rem;"></div>
-        <div style="position:relative;"><i class="fas fa-globe" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><input type="text" name="location" placeholder="Your Country" style="padding-left:2.5rem;"></div>
-        <div style="position:relative;"><i class="fas fa-comment" style="position:absolute; left:12px; top:12px; color:#9ca3af;"></i><textarea name="message" placeholder="Tell me about your project & goals..." required style="padding-left:2.5rem;"></textarea></div>
-        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message →</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <p>&copy; 2026 Stephen S. Cichon. All rights reserved.</p>
-  <p>Digital Marketing Specialist | WordPress Developer | Shopify Expert</p>
-  <div class="social-links">
-    <a href="https://www.linkedin.com/in/stephensmcichon/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/stephensmcichon-oss" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://wa.me/639611214870?text=Hi%20Stephen,%20I%20saw%20your%20portfolio" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="#"><i class="fab fa-upwork"></i></a>
-  </div>
-</footer>
-
-<script>
-  function toggleMenu() { document.getElementById('navLinks').classList.toggle('show'); }
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) { target.scrollIntoView({ behavior: 'smooth' }); document.getElementById('navLinks')?.classList.remove('show'); }
-    });
-  });
-  const fadeElements = document.querySelectorAll('.card, .port-card, .testimonial-card, .stat-card, .info-row');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('fade-slide'); });
-  }, { threshold: 0.1 });
-  fadeElements.forEach(el => observer.observe(el));
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
