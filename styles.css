@@ -679,6 +679,49 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5rem;
 }
 
+/* Portfolio Section */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 2rem;
+}
+
+.portfolio-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(6, 182, 212, 0.1);
+    color: var(--accent-secondary);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.portfolio-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.portfolio-desc {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.portfolio-tags {
+    margin-top: auto;
+}
+
 /* Contact Section */
 .contact-wrapper {
     display: grid;
